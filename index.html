@@ -1,0 +1,979 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Motivnation: definitions, charts, stories, quotes and daily tools for discipline and obsession.">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Motivnation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Manrope:wght@400;500;700&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@500;700&display=swap">
+<style>
+/* Layout: marble-to-black hero that dissolves downward, then a dark "notebook" of definitions, charts, stories, a scroll-driven reel, quotes and personal tools. Single dark look by choice. */
+:root{
+  --ink:#08080a;
+  --ink-2:#111114;
+  --ink-3:#18181c;
+  --line:#26262c;
+  --marble:#e9e5de;
+  --mute:#8f8b84;
+  --hl:#e6ef3c;
+  --hl-ink:#1a1a10;
+  --violet:#8b7cf6;
+  --down:#c46a5a;
+  --f-display:"Anton","Impact","Arial Narrow Bold",sans-serif;
+  --f-serif:"EB Garamond","Garamond","Times New Roman",serif;
+  --f-body:"Manrope","Segoe UI",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,"Consolas",monospace;
+  --f-hand:"Caveat","Segoe Print","Comic Sans MS",cursive;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--marble);font-family:var(--f-body);font-size:16px;line-height:1.6;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
+a{color:inherit}
+::selection{background:var(--hl);color:var(--hl-ink)}
+:focus-visible{outline:2px solid var(--hl);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.eyebrow{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+h2{font-family:var(--f-display);font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:.95;font-size:clamp(2.6rem,7vw,5.4rem);margin:.3em 0 .35em;text-wrap:balance}
+section{padding-block:clamp(64px,10vw,120px)}
+.lead{max-width:60ch;color:#c9c5bd;font-size:1.06rem}
+
+/* NAV */
+nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+nav.solid{background:rgba(8,8,10,.86);backdrop-filter:blur(10px);border-color:var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{font-family:var(--f-display);font-size:1.35rem;letter-spacing:.06em;text-decoration:none;color:var(--marble);text-shadow:0 1px 12px rgba(0,0,0,.45)}
+.brand b{font-weight:400;background:var(--hl);color:var(--hl-ink);padding:0 .12em}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
+nav ul a{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--marble);opacity:.8;text-shadow:0 1px 10px rgba(0,0,0,.5)}
+nav ul a:hover{opacity:1;color:var(--hl)}
+@media (max-width:1040px){nav ul{display:none}}
+
+/* HERO */
+.hero{position:relative;padding:0}
+.hero-img{position:relative;width:100%;max-width:1600px;margin:0 auto;aspect-ratio:16/9;max-height:92vh;overflow:hidden;
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 38%,rgba(0,0,0,.55) 68%,transparent 100%);
+          mask-image:linear-gradient(to bottom,#000 0%,#000 38%,rgba(0,0,0,.55) 68%,transparent 100%)}
+.hero-img img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 28%;animation:settle 2.4s cubic-bezier(.2,.7,.2,1) both}
+@keyframes settle{from{transform:scale(1.08);filter:brightness(.7)}to{transform:scale(1);filter:brightness(1)}}
+.hero-copy{position:relative;margin-top:clamp(-150px,-10vw,-40px)}
+.hero-copy .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:end}
+.hero h1{font-family:var(--f-display);font-weight:400;font-size:clamp(3.4rem,12vw,10rem);line-height:.86;margin:0;text-transform:uppercase}
+.hero h1 span{color:var(--hl)}
+.hero p{margin:0 0 .6em;font-family:var(--f-serif);font-size:clamp(1.2rem,2.2vw,1.6rem);line-height:1.35;color:#d8d3cb;font-style:italic;max-width:30ch}
+.hero .meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:18px}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;padding:13px 20px;border:1px solid var(--marble);color:var(--marble);background:transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.btn:hover{background:var(--marble);color:var(--ink)}
+.btn.hl{background:var(--hl);border-color:var(--hl);color:var(--hl-ink)}
+.btn.hl:hover{background:var(--marble);border-color:var(--marble)}
+.btn.sm{padding:9px 14px;font-size:.7rem}
+.btn.ghost{border-color:var(--line);color:var(--mute)}
+.btn.ghost:hover{border-color:var(--marble);color:var(--ink)}
+@media (max-width:760px){.hero-copy .wrap{grid-template-columns:1fr}.hero-img{aspect-ratio:4/3}}
+
+/* MARQUEE */
+.marquee{border-block:1px solid var(--line);overflow:hidden;padding-block:16px;margin-top:clamp(48px,7vw,90px);background:var(--ink)}
+.track{display:flex;width:max-content;animation:run 38s linear infinite}
+.track span{font-family:var(--f-display);font-size:clamp(1.4rem,3vw,2.2rem);text-transform:uppercase;letter-spacing:.03em;white-space:nowrap;padding-right:42px;color:var(--mute)}
+.track span em{font-style:normal;color:var(--hl-ink);background:var(--hl);padding:0 .2em;margin-left:.25em}
+@keyframes run{to{transform:translateX(-50%)}}
+
+/* DAILY QUOTE */
+.daily{padding-block:clamp(56px,8vw,96px) 0}
+.daily-card{display:grid;grid-template-columns:200px 1fr;gap:clamp(20px,4vw,56px);align-items:start}
+.cal{border:1px solid var(--line);text-align:center;background:var(--ink-2)}
+.cal .m{background:var(--hl);color:var(--hl-ink);font-family:var(--f-mono);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;padding:8px 0;font-weight:500}
+.cal .d{font-family:var(--f-display);font-size:5.4rem;line-height:1;padding:14px 0 4px;font-variant-numeric:tabular-nums}
+.cal .w{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);padding-bottom:14px}
+.daily blockquote{margin:0}
+.daily blockquote p{font-family:var(--f-serif);font-size:clamp(1.8rem,4.2vw,3.3rem);line-height:1.12;margin:0;text-wrap:balance}
+.daily cite{display:block;font-style:normal;font-family:var(--f-mono);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--hl);margin-top:18px}
+.daily cite small{display:block;color:var(--mute);letter-spacing:.06em;text-transform:none;margin-top:4px;font-size:.78rem}
+.next{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:24px;font-family:var(--f-mono);font-size:.76rem;color:var(--mute);font-variant-numeric:tabular-nums}
+.next b{color:var(--marble);font-weight:500}
+@media (max-width:640px){.daily-card{grid-template-columns:1fr}.cal{display:flex;align-items:center;justify-content:space-between;text-align:left}.cal .m{padding:10px 14px}.cal .d{font-size:2.4rem;padding:6px 14px}.cal .w{padding:0 14px 0 0}}
+
+/* LEXICON */
+.lex-feature{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,72px);align-items:center;padding-block:clamp(28px,4vw,48px);border-bottom:1px solid var(--line)}
+.lex-feature:first-of-type{border-top:1px solid var(--line);margin-top:36px}
+.word{font-family:var(--f-serif);font-weight:600;font-size:clamp(3rem,8vw,6.4rem);line-height:.9;letter-spacing:-.01em;margin:0}
+.pron{font-family:var(--f-mono);font-size:.85rem;color:var(--mute);margin-top:12px}
+.pron i{font-style:normal;color:var(--violet);margin-left:10px}
+.defn{font-family:var(--f-serif);font-size:clamp(1.25rem,2.2vw,1.6rem);line-height:1.4;margin:0}
+.defn ol{margin:0;padding-left:1.2em}
+.defn li+li{margin-top:.6em}
+.defn .ex{display:block;color:var(--mute);font-style:italic;font-size:.82em;margin-top:.25em}
+.lex-tools{display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-top:56px}
+.search{flex:1 1 260px;max-width:420px;position:relative}
+.search input{width:100%;background:var(--ink-2);border:1px solid var(--line);color:var(--marble);font-family:var(--f-body);font-size:1rem;padding:12px 14px 12px 40px}
+.search input::placeholder{color:#6a675f}
+.search input:focus{border-color:var(--hl);outline:none}
+.search svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);width:16px;height:16px;stroke:var(--mute);fill:none}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:8px 13px;border:1px solid var(--line);background:transparent;color:var(--mute);cursor:pointer}
+.chip:hover{color:var(--marble);border-color:#4a4844}
+.chip[aria-pressed="true"]{background:var(--marble);color:var(--ink);border-color:var(--marble)}
+.lex-count{font-family:var(--f-mono);font-size:.74rem;color:var(--mute);margin-top:14px}
+.lex-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:14px}
+.entry{background:var(--ink);padding:28px 26px 30px;min-width:0;transition:background .25s}
+.entry:hover{background:var(--ink-2)}
+.entry .tag{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--violet)}
+.entry h3{font-family:var(--f-serif);font-weight:600;font-size:2rem;line-height:1.02;margin:6px 0 0;text-wrap:balance}
+.entry .pron{font-size:.74rem;margin-top:8px}
+.entry p{font-family:var(--f-serif);font-size:1.12rem;line-height:1.45;margin:14px 0 0;color:#d8d3cb}
+.entry .use{display:block;margin-top:12px;font-size:.82rem;color:var(--mute)}
+.entry .use b{color:var(--hl);font-weight:500}
+.entry mark{background:var(--hl);color:var(--hl-ink);padding:0 .1em}
+.lex-empty{border:1px dashed var(--line);padding:36px;text-align:center;color:var(--mute);margin-top:14px}
+@media (max-width:900px){.lex-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:760px){.lex-feature{grid-template-columns:1fr}}
+@media (max-width:560px){.lex-grid{grid-template-columns:1fr}}
+
+/* PAPER */
+.paper{position:relative;background-color:#e7e3da;color:#1b1a17;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.3  0 0 0 0 0.28  0 0 0 0 0.25  0 0 0 .22 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  box-shadow:0 30px 60px -20px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.04)}
+.mark{background:linear-gradient(100deg,transparent 0 .4%,var(--hl) .8% 98.6%,transparent 99.4%);padding:0 .18em;box-decoration-break:clone;-webkit-box-decoration-break:clone;color:var(--hl-ink)}
+.slips{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,4vw,56px);align-items:center}
+.slip{padding:clamp(28px,4vw,48px);font-family:var(--f-serif);font-size:clamp(1.5rem,3.4vw,2.6rem);line-height:1.15;transform:rotate(-1.4deg)}
+.slip table{border-collapse:collapse;width:100%}
+.slip td{padding:.18em 0;vertical-align:baseline}
+.slip td:first-child{padding-right:.5em;white-space:nowrap}
+.slip td:last-child{font-weight:600}
+.slip.small{transform:rotate(1.8deg);font-size:clamp(1.3rem,2.6vw,2rem);margin-top:18px;max-width:420px;justify-self:end}
+.side-note{color:#c9c5bd;max-width:44ch}
+@media (max-width:760px){.slips{grid-template-columns:1fr}}
+
+/* CHARTS */
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
+.chart{border:1px solid var(--line);background:var(--ink-2);padding:24px 22px 18px;min-width:0}
+.chart.wide{grid-column:1/-1}
+.chart h3{font-family:var(--f-display);font-weight:400;font-size:1.7rem;letter-spacing:.02em;text-transform:uppercase;margin:6px 0}
+.chart .sub{color:var(--mute);font-size:.92rem;margin:0 0 14px;max-width:62ch}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.chart svg text{font-family:var(--f-mono);font-size:11px;fill:var(--mute)}
+.legend{display:flex;gap:20px;flex-wrap:wrap;font-family:var(--f-mono);font-size:.75rem;color:var(--mute);margin-top:12px}
+.legend i{display:inline-block;width:18px;height:3px;vertical-align:middle;margin-right:8px}
+.stats{display:flex;gap:28px;flex-wrap:wrap;margin-top:6px}
+.stat b{display:block;font-family:var(--f-display);font-weight:400;font-size:2.6rem;line-height:1;font-variant-numeric:tabular-nums}
+.stat span{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.tree text{font-family:var(--f-hand)!important;font-size:30px!important;fill:#1b1a17!important}
+.tree-wrap{padding:18px;margin-top:4px}
+@media (max-width:820px){.charts{grid-template-columns:1fr}}
+
+/* REEL */
+.reel{position:relative;padding:0;height:calc(var(--frames,5) * 85vh);background:var(--ink)}
+.reel-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:grid;place-items:center}
+.reel-glow{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 60%,rgba(139,124,246,.16),transparent 70%);pointer-events:none}
+.frame{position:absolute;inset:0;display:grid;place-items:center;text-align:center;opacity:0;will-change:opacity,filter,transform;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.frame.f0{opacity:1}
+.f-paper{width:min(560px,86vw);aspect-ratio:1;max-width:100%;display:grid;place-items:center;font-size:clamp(2rem,6vw,3.6rem);font-family:var(--f-body);font-weight:700;letter-spacing:-.02em;background:#f2f0ec;color:#0c0c0c}
+.f-vs{font-family:var(--f-display);font-size:clamp(4.4rem,18vw,15rem);line-height:.85;text-transform:uppercase;background:linear-gradient(180deg,var(--marble) 30%,#4a4844 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.f-vs .v{font-family:var(--f-serif);font-style:italic;-webkit-text-fill-color:var(--hl);font-size:.42em;vertical-align:.55em;margin-inline:.15em}
+.f-dict .w{font-family:var(--f-serif);font-weight:600;font-size:clamp(3.6rem,12vw,9rem);line-height:.9}
+.f-dict .p{font-family:var(--f-mono);color:var(--mute);margin-top:12px;font-size:.9rem}
+.f-dict .d{font-family:var(--f-serif);font-style:italic;font-size:clamp(1.3rem,3vw,2rem);margin-top:22px;color:#d8d3cb;max-width:26ch;margin-inline:auto}
+.f-note{width:min(620px,88vw);max-width:100%;padding:clamp(28px,5vw,56px);font-family:var(--f-serif);font-size:clamp(2rem,5.6vw,3.6rem);line-height:1.15;transform:rotate(-1.5deg)}
+.f-become{font-family:var(--f-hand);font-size:clamp(2.6rem,8vw,6rem);line-height:1;color:var(--marble)}
+.f-become small{display:block;font-family:var(--f-mono);font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--hl);margin-top:24px}
+.reel-dots{position:absolute;right:max(18px,env(safe-area-inset-right,0px));top:50%;transform:translateY(-50%);display:grid;gap:10px}
+.reel-dots i{width:6px;height:22px;background:var(--line);transition:background .3s}
+.reel-dots i.on{background:var(--hl)}
+.reel-hint{position:absolute;bottom:calc(24px + env(safe-area-inset-bottom,0px));left:0;right:0;text-align:center;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.reel.static{height:auto}
+.reel.static .reel-stage{position:relative;height:auto;display:block;padding-block:60px}
+.reel.static .frame{position:relative;opacity:1!important;filter:none!important;transform:none!important;padding-block:40px}
+.reel.static .reel-dots,.reel.static .reel-hint{display:none}
+
+/* STORIES */
+.timeline{position:relative;margin-top:44px;display:grid;gap:0}
+.timeline::before{content:"";position:absolute;left:150px;top:8px;bottom:8px;width:1px;background:linear-gradient(var(--line),var(--hl) 50%,var(--line))}
+.story{display:grid;grid-template-columns:150px 1fr;gap:0 40px;position:relative;padding-block:28px;border-bottom:1px solid var(--line)}
+.story:last-child{border-bottom:none}
+.story::before{content:"";position:absolute;left:146px;top:40px;width:9px;height:9px;background:var(--ink);border:2px solid var(--hl)}
+.yr{font-family:var(--f-display);font-size:2.4rem;line-height:1;padding-right:24px;font-variant-numeric:tabular-nums;color:var(--marble)}
+.yr small{display:block;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.12em;color:var(--mute);margin-top:8px}
+.story-body{padding-left:24px;min-width:0}
+.story h3{font-family:var(--f-serif);font-weight:600;font-size:clamp(1.7rem,3.4vw,2.3rem);line-height:1.05;margin:0}
+.story .who{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin-top:6px}
+.sb{display:grid;grid-template-columns:1fr 1fr auto;gap:28px;margin-top:18px;align-items:start}
+.sb div{min-width:0}
+.sb .k{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase}
+.sb .k.bad{color:var(--down)}
+.sb .k.good{color:var(--hl)}
+.sb p{margin:6px 0 0;color:#d0cbc3;font-size:.98rem}
+.figure{border:1px solid var(--line);padding:12px 16px;text-align:center;min-width:120px;background:var(--ink-2)}
+.figure b{display:block;font-family:var(--f-display);font-weight:400;font-size:2rem;line-height:1;color:var(--hl);font-variant-numeric:tabular-nums}
+.figure span{font-family:var(--f-mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+@media (max-width:860px){.sb{grid-template-columns:1fr 1fr}.figure{grid-column:1/-1;justify-self:start}}
+@media (max-width:640px){
+  .timeline::before{left:6px}
+  .story{grid-template-columns:1fr;padding-left:28px}
+  .story::before{left:2px;top:36px}
+  .yr{font-size:1.8rem;padding:0 0 10px}.yr small{display:inline;margin-left:10px}
+  .story-body{padding-left:0}.sb{grid-template-columns:1fr;gap:16px}
+}
+
+/* QUOTES */
+.q-feature{border-block:1px solid var(--line);padding-block:clamp(36px,6vw,64px);margin-top:28px;display:grid;grid-template-columns:auto 1fr;gap:clamp(18px,4vw,48px);align-items:start}
+.q-mark{font-family:var(--f-serif);font-size:clamp(6rem,14vw,11rem);line-height:.7;color:var(--hl)}
+blockquote{margin:0}
+.q-feature blockquote p{font-family:var(--f-serif);font-size:clamp(1.7rem,3.8vw,3rem);line-height:1.18;margin:0;text-wrap:balance;min-height:3.6em}
+.q-feature cite,.q cite{display:block;font-style:normal;font-family:var(--f-mono);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--hl);margin-top:18px}
+.q-feature cite small,.q cite small{display:block;color:var(--mute);letter-spacing:.06em;text-transform:none;margin-top:4px;font-size:.78rem}
+.q-ctl{display:flex;gap:12px;align-items:center;margin-top:26px;flex-wrap:wrap}
+.q-count{font-family:var(--f-mono);font-size:.78rem;color:var(--mute);font-variant-numeric:tabular-nums}
+.fade{transition:opacity .35s}
+.fade.out{opacity:0}
+.q-grid{columns:3 280px;column-gap:20px;margin-top:40px}
+.q{break-inside:avoid;margin:0 0 20px;padding:24px 22px;border:1px solid var(--line);background:var(--ink-2);transition:border-color .25s,transform .25s}
+.q:hover{border-color:#4a4844;transform:translateY(-2px)}
+.q p{font-family:var(--f-serif);font-size:1.28rem;line-height:1.35;margin:0}
+.q cite{margin-top:14px;font-size:.72rem}
+.q.paper{border:none}
+.q.paper p,.q.paper cite{color:#1b1a17}
+.q.paper cite small{color:#5d5a53}
+@media (max-width:600px){.q-feature{grid-template-columns:1fr}.q-mark{line-height:.5}}
+
+/* GOAL CARD */
+.goal{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,64px);align-items:start}
+.form{display:grid;gap:16px;margin-top:22px}
+.field label{display:block;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:6px}
+.field input,.field textarea{width:100%;background:var(--ink-2);border:1px solid var(--line);color:var(--marble);font-family:var(--f-body);font-size:1rem;padding:12px 14px;resize:vertical}
+.field input:focus,.field textarea:focus{border-color:var(--hl);outline:none}
+.field input[type=date]{font-family:var(--f-mono)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.gcard{padding:clamp(28px,4.5vw,52px);transform:rotate(-1.2deg);margin-top:8px}
+.gcard .gtop{display:flex;justify-content:space-between;gap:12px;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:#5d5a53}
+.gcard .gtitle{font-family:var(--f-serif);font-weight:600;font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.2;margin:22px 0 0;overflow-wrap:anywhere}
+.gcard .gwhy{font-family:var(--f-hand);font-size:clamp(1.5rem,3vw,2rem);line-height:1.15;margin:22px 0 0;color:#2b2a26;overflow-wrap:anywhere}
+.gcard .gwhy:before{content:"because ";color:#8a867d}
+.gcard .gdaily{font-family:var(--f-serif);font-size:1.15rem;margin-top:18px;padding-top:16px;border-top:1px dashed #b8b3a8;overflow-wrap:anywhere}
+.gcard .gdaily b{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:#5d5a53;margin-right:8px}
+.gcard .gfoot{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-top:26px;flex-wrap:wrap}
+.gcard .gleft b{display:block;font-family:var(--f-display);font-weight:400;font-size:3rem;line-height:1;font-variant-numeric:tabular-nums}
+.gcard .gleft span{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#5d5a53}
+.gcard .gsig{font-family:var(--f-hand);font-size:1.6rem;color:#5d5a53}
+.gcard.example{opacity:.9}
+.ex-tag{display:inline-block;background:#1b1a17;color:var(--hl);padding:2px 8px}
+.help{font-size:.84rem;color:var(--mute);margin-top:22px}
+@media (max-width:820px){.goal{grid-template-columns:1fr}}
+@media (max-width:420px){.row2{grid-template-columns:1fr}}
+
+/* HABITS */
+.habits-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+.add-habit{display:flex;gap:10px;flex-wrap:wrap;flex:1 1 320px;max-width:480px}
+.add-habit input{flex:1 1 180px;min-width:0;background:var(--ink-2);border:1px solid var(--line);color:var(--marble);font-family:var(--f-body);font-size:1rem;padding:12px 14px}
+.add-habit input:focus{border-color:var(--hl);outline:none}
+.hlist{display:grid;gap:18px;margin-top:32px}
+.habit{border:1px solid var(--line);background:var(--ink-2);padding:22px 22px 20px;display:grid;grid-template-columns:260px 1fr;gap:24px;align-items:center}
+.habit h3{font-family:var(--f-serif);font-weight:600;font-size:1.7rem;line-height:1.1;margin:0;overflow-wrap:anywhere}
+.hstats{display:flex;gap:22px;margin-top:12px;flex-wrap:wrap}
+.hstats div b{display:block;font-family:var(--f-display);font-weight:400;font-size:1.9rem;line-height:1;font-variant-numeric:tabular-nums}
+.hstats div span{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.hstats .best b{color:var(--hl)}
+.hactions{margin-top:14px}
+.grid30{display:grid;grid-template-columns:repeat(15,1fr);gap:5px;min-width:0}
+.cell{aspect-ratio:1;max-width:100%;border:1px solid var(--line);background:transparent;color:#5f5c56;font-family:var(--f-mono);font-size:.62rem;cursor:pointer;padding:0;display:grid;place-items:center;font-variant-numeric:tabular-nums;transition:background .15s,color .15s,border-color .15s}
+.cell:hover{border-color:var(--marble);color:var(--marble)}
+.cell.on{background:var(--hl);border-color:var(--hl);color:var(--hl-ink);font-weight:500}
+.cell.today{outline:1px solid var(--marble);outline-offset:2px}
+.grid-legend{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:.66rem;color:var(--mute);margin-top:8px;letter-spacing:.08em;text-transform:uppercase}
+.hempty{border:1px dashed var(--line);padding:36px;text-align:center;color:var(--mute)}
+@media (max-width:820px){.habit{grid-template-columns:1fr}}
+@media (max-width:480px){.grid30{grid-template-columns:repeat(10,1fr)}}
+
+/* AMBIENT PLAYER */
+.amb{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:55;display:grid;justify-items:end;gap:10px}
+.amb-btn{display:flex;align-items:center;gap:10px;background:var(--ink-3);border:1px solid #3a3a42;color:var(--marble);font-family:var(--f-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;padding:11px 16px;cursor:pointer;box-shadow:0 12px 30px rgba(0,0,0,.6)}
+.amb-btn:hover{border-color:var(--hl)}
+.amb-btn.playing{border-color:var(--hl);color:var(--hl)}
+.bars{display:flex;gap:2px;align-items:end;height:12px}
+.bars i{width:2px;height:4px;background:currentColor}
+.amb-btn.playing .bars i{animation:bar 1s ease-in-out infinite}
+.amb-btn.playing .bars i:nth-child(2){animation-delay:.2s}
+.amb-btn.playing .bars i:nth-child(3){animation-delay:.45s}
+@keyframes bar{0%,100%{height:3px}50%{height:12px}}
+.amb-panel{width:260px;max-width:calc(100vw - 36px);background:var(--ink-3);border:1px solid #3a3a42;padding:16px;box-shadow:0 20px 40px rgba(0,0,0,.6)}
+.amb-panel .eyebrow{margin-bottom:10px}
+.modes{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.modes .chip{padding:8px 4px;text-align:center}
+.vol{display:flex;align-items:center;gap:10px;margin-top:14px;font-family:var(--f-mono);font-size:.68rem;color:var(--mute);text-transform:uppercase;letter-spacing:.12em}
+.vol input{flex:1;accent-color:var(--hl)}
+.amb-panel .row{display:flex;justify-content:space-between;align-items:center;margin-top:14px;gap:10px}
+
+/* PICTURES */
+.pics{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin-top:40px}
+.pic{position:relative;margin:0;aspect-ratio:4/5;max-width:100%;overflow:hidden;background:var(--ink-2);border:1px solid var(--line)}
+.pic img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(1) contrast(1.08) brightness(.9);transform:scale(1.02);transition:filter .6s,transform .8s}
+.pic:hover img,.pic:focus-within img{filter:grayscale(.15) contrast(1.05) brightness(1);transform:scale(1.06)}
+.pic::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(8,8,10,.55) 62%,rgba(8,8,10,.95));pointer-events:none}
+.pic figcaption{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:20px 20px 22px}
+.pic .big{font-family:var(--f-display);font-size:clamp(2.6rem,5vw,3.6rem);line-height:.9;text-transform:uppercase;letter-spacing:.01em;color:var(--marble)}
+.pic .line{display:inline;font-family:var(--f-serif);font-size:1.15rem;line-height:1.5;margin-top:10px}
+.pic .line .mark{font-weight:600}
+.pic .small{display:block;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-top:12px}
+.pic .num{position:absolute;top:14px;left:16px;z-index:1;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.16em;color:var(--marble);opacity:.75}
+.pic .rm{position:absolute;top:10px;right:10px;z-index:2;background:rgba(8,8,10,.75)}
+.pic.add{display:grid;place-items:center;border-style:dashed;text-align:center;padding:24px}
+.pic.add::after{display:none}
+.add-form{display:grid;gap:12px;width:100%;max-width:240px}
+.add-form .plus{font-family:var(--f-display);font-size:3rem;line-height:1;color:var(--hl)}
+.add-form p{margin:0;color:var(--mute);font-size:.9rem}
+.add-form input[type=text]{width:100%;background:var(--ink);border:1px solid var(--line);color:var(--marble);font-family:var(--f-body);font-size:.95rem;padding:10px 12px}
+.add-form input[type=text]:focus{border-color:var(--hl);outline:none}
+.file-btn{position:relative;overflow:hidden;justify-content:center}
+.file-btn input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.add-msg{font-family:var(--f-mono);font-size:.7rem;color:var(--mute);min-height:1.2em}
+
+footer{border-top:1px solid var(--line);padding-block:56px 96px}
+footer .wrap{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+footer .tp{font-family:var(--f-serif);font-size:clamp(2rem,5vw,3.4rem);line-height:1}
+footer small{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;color:var(--mute);text-transform:uppercase}
+
+.reveal{transition:opacity .8s ease,transform .8s ease}
+.reveal.pre{opacity:.001;transform:translateY(18px)}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal.pre{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+
+<nav id="nav"><div class="wrap">
+  <a class="brand" href="#top">MOTIV<b>NATION</b></a>
+  <ul>
+    <li><a href="#today">Today</a></li>
+    <li><a href="#lexicon">Lexicon</a></li>
+    <li><a href="#proof">Proof</a></li>
+    <li><a href="#stories">Stories</a></li>
+    <li><a href="#quotes">Quotes</a></li>
+    <li><a href="#goal">Goal</a></li>
+    <li><a href="#habits">Habits</a></li>
+    <li><a href="#pictures">Pictures</a></li>
+  </ul>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="hero-img"><img src="assets/hero.jpg" alt="Marble statue of Michelangelo's David with the word OBSESSION in large white letters behind it"></div>
+  <div class="hero-copy"><div class="wrap">
+    <h1>Motiv<br><span>nation.</span></h1>
+    <div>
+      <p>Motivation gets you started. Obsession and discipline keep you going when nobody is watching.</p>
+      <div class="meta">
+        <a class="btn hl" href="#goal">Write your goal</a>
+        <a class="btn" href="#habits">Track habits</a>
+      </div>
+    </div>
+  </div></div>
+  <div class="marquee" aria-hidden="true"><div class="track" id="track"></div></div>
+</header>
+
+<main>
+<section class="daily" id="today"><div class="wrap">
+  <div class="eyebrow">Quote of the day</div>
+  <div class="daily-card" style="margin-top:22px">
+    <div class="cal" aria-hidden="true"><div class="m" id="calM">Oct</div><div class="d" id="calD">24</div><div class="w" id="calW">Saturday</div></div>
+    <div>
+      <blockquote><p id="dqText">Discipline is the bridge between goals and accomplishment.</p><cite id="dqCite">Jim Rohn<small>Entrepreneur &amp; author</small></cite></blockquote>
+      <div class="next"><span>Next quote in <b id="dqLeft">--:--:--</b></span><span>·</span><span>Everyone sees the same quote today</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="lexicon"><div class="wrap">
+  <div class="eyebrow">Chapter I · The Lexicon</div>
+  <h2>Words that build<br>a person</h2>
+  <p class="lead">Every great result has a vocabulary behind it. These are the words people repeat to themselves at 5 a.m., defined plainly, with how to use them in your own life.</p>
+
+  <div class="lex-feature reveal">
+    <div><p class="word">obsession</p><div class="pron">/əbˈsɛʃ.ən/ <i>noun</i></div></div>
+    <div class="defn"><ol>
+      <li>A goal or idea that fills your mind so completely that everything else is measured against it.<span class="ex">"Average people have hobbies. Builders have obsessions."</span></li>
+      <li>Focus that no longer needs to be forced; you return to the work because you want to, not because you must.</li>
+    </ol></div>
+  </div>
+  <div class="lex-feature reveal">
+    <div><p class="word">discipline</p><div class="pron">/ˈdɪs.ə.plɪn/ <i>noun</i></div></div>
+    <div class="defn"><ol>
+      <li>The practice of doing what you planned to do, even when you don't feel like doing it.<span class="ex">Motivation is a mood. Discipline is a decision.</span></li>
+      <li>Training that shapes behavior until the right choice becomes the default one.</li>
+    </ol></div>
+  </div>
+
+  <div class="lex-tools">
+    <div class="search">
+      <svg viewBox="0 0 24 24" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+      <input id="lexQ" type="search" placeholder="Search a word or meaning" aria-label="Search the lexicon" autocomplete="off">
+    </div>
+    <div class="chips" id="lexChips" role="group" aria-label="Filter by category"></div>
+  </div>
+  <div class="lex-count" id="lexCount"></div>
+  <div class="lex-grid" id="lexGrid"></div>
+  <div class="lex-empty" id="lexEmpty" hidden>No word matches that search. Try "patience" or "habit".</div>
+</div></section>
+
+<section id="keep" style="padding-top:0"><div class="wrap slips">
+  <div>
+    <div class="paper slip reveal"><table>
+      <tr><td>No Results?</td><td><span class="mark">Keep Working.</span></td></tr>
+      <tr><td>Bad Results?</td><td><span class="mark">Keep Working.</span></td></tr>
+      <tr><td>Good Results?</td><td><span class="mark">Keep Working.</span></td></tr>
+    </table></div>
+    <div class="paper slip small reveal"><span class="mark">Nothing changes if you change nothing.</span></div>
+  </div>
+  <div class="side-note">
+    <div class="eyebrow">The rule</div>
+    <h2 style="font-size:clamp(2.2rem,5vw,3.8rem)">One answer to every result</h2>
+    <p>Results are feedback, not a verdict. A bad week tells you what to fix. A good week tells you what to repeat. Neither one is a reason to stop.</p>
+  </div>
+</div></section>
+
+<section id="proof"><div class="wrap">
+  <div class="eyebrow">Chapter II · The Proof</div>
+  <h2>Small steps,<br>compounded</h2>
+  <p class="lead">Progress rarely feels like progress while it is happening. These charts show why the people who keep going eventually look "lucky".</p>
+  <div class="charts">
+    <div class="chart wide reveal">
+      <div class="eyebrow">The 1% rule · 365 days</div>
+      <h3>1% better vs 1% worse, every day</h3>
+      <p class="sub">Improve by 1% each day for a year and you end up about 37.8 times better. Slip by 1% each day and you are left with 3% of where you started. The daily difference looks tiny; the yearly difference is everything.</p>
+      <div class="stats">
+        <div class="stat"><b style="color:var(--hl)">37.78×</b><span>1.01<sup>365</sup></span></div>
+        <div class="stat"><b style="color:var(--down)">0.03×</b><span>0.99<sup>365</sup></span></div>
+        <div class="stat"><b>1.00×</b><span>Doing nothing</span></div>
+      </div>
+      <svg id="compound" viewBox="0 0 720 300" role="img" aria-label="Line chart: 1.01 to the power of days rises to 37.78 at day 365, 0.99 to the power of days falls to 0.03."></svg>
+      <div class="legend"><span><i style="background:var(--hl)"></i>1% better each day</span><span><i style="background:var(--down)"></i>1% worse each day</span><span><i style="background:var(--mute)"></i>Staying the same</span></div>
+    </div>
+    <div class="chart reveal">
+      <div class="eyebrow">Concept · expectation vs reality</div>
+      <h3>The valley of disappointment</h3>
+      <p class="sub">We expect results to grow in a straight line. Real results stay flat for a long time, then rise fast. Most people quit inside the gap.</p>
+      <svg id="valley" viewBox="0 0 360 250" role="img" aria-label="Conceptual chart: an expected straight line and an actual curve that stays below it, then crosses above it late."></svg>
+      <div class="legend"><span><i style="background:var(--mute)"></i>What you expect</span><span><i style="background:var(--hl)"></i>What really happens</span></div>
+    </div>
+    <div class="chart reveal">
+      <div class="eyebrow">Decision tree</div>
+      <h3>If you try</h3>
+      <p class="sub">Not trying has one outcome. Trying has two, and one of them is the win.</p>
+      <div class="paper tree-wrap">
+        <svg class="tree" viewBox="0 0 320 230" role="img" aria-label="Tree: if you don't try, you fail. If you try, you may fail or succeed.">
+          <g fill="none" stroke="#1b1a17" stroke-width="2.4" stroke-linecap="round">
+            <path d="M160 52 L160 78 M160 78 L84 112 M160 78 L236 112"/><path d="M80 140 L80 176"/>
+            <path d="M236 140 L236 160 M236 160 L196 182 M236 160 L276 182"/>
+          </g>
+          <text x="160" y="40" text-anchor="middle">if you</text>
+          <text x="76" y="134" text-anchor="middle">don't try</text>
+          <text x="236" y="134" text-anchor="middle">try</text>
+          <g stroke="#d4566c" stroke-width="3.2" stroke-linecap="round"><path d="M66 190 L94 220 M94 190 L66 220"/><path d="M182 192 L208 220 M208 192 L182 220"/></g>
+          <path d="M262 204 L274 220 L298 184" fill="none" stroke="#3fb37a" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="reel" id="reel" style="--frames:5" aria-label="Five short statements, shown one at a time as you scroll">
+  <div class="reel-stage">
+    <div class="reel-glow"></div>
+    <div class="frame f0"><div class="f-paper">Trust the process.</div></div>
+    <div class="frame"><div class="f-vs">You<span class="v">vs</span>You</div></div>
+    <div class="frame"><div class="f-dict"><div class="w">discipline</div><div class="p">/ˈdɪs.ə.plɪn/ noun</div><div class="d">doing what you have to do, even when you don't want to.</div></div></div>
+    <div class="frame"><div class="paper f-note"><span class="mark">Nothing changes if you change nothing.</span></div></div>
+    <div class="frame"><div class="f-become">for who you<br>can become.<small>Keep scrolling. Keep working.</small></div></div>
+    <div class="reel-dots" id="reelDots" aria-hidden="true"></div>
+    <div class="reel-hint" id="reelHint">Scroll</div>
+  </div>
+</section>
+
+<section id="stories"><div class="wrap">
+  <div class="eyebrow">Chapter III · The Stories</div>
+  <h2>Failed first.<br>Won later.</h2>
+  <p class="lead">Every name on this list was rejected, fired, bankrupt or cut before the world knew them. The setback came first. The comeback came because they kept going.</p>
+  <div class="timeline" id="timeline"></div>
+</div></section>
+
+<section id="quotes" style="padding-top:0"><div class="wrap">
+  <div class="eyebrow">Chapter IV · The Voices</div>
+  <h2>Said by people<br>who did the work</h2>
+  <div class="q-feature reveal">
+    <div class="q-mark" aria-hidden="true">“</div>
+    <div>
+      <blockquote class="fade" id="qf"><p id="qfText"></p><cite id="qfCite"></cite></blockquote>
+      <div class="q-ctl">
+        <button class="btn hl" id="qNext" type="button">Next quote →</button>
+        <button class="btn" id="qCopy" type="button">Copy</button>
+        <span class="q-count" id="qCount"></span>
+      </div>
+    </div>
+  </div>
+  <div class="q-grid" id="qGrid"></div>
+</div></section>
+
+<section id="goal" style="padding-top:0"><div class="wrap goal">
+  <div>
+    <div class="eyebrow">Chapter V · The Goal</div>
+    <h2>Write it down.<br>Make it real.</h2>
+    <p class="lead">A goal you can see every day is harder to forget. Fill in the card and it turns into a highlighted note, ready to screenshot and set as your wallpaper.</p>
+    <form class="form" id="goalForm" autocomplete="off">
+      <div class="field"><label for="gGoal">My goal</label><input id="gGoal" maxlength="90" placeholder="Pass every exam this semester with 3.5+"></div>
+      <div class="field"><label for="gWhy">Why it matters to me</label><textarea id="gWhy" rows="2" maxlength="140" placeholder="I want to prove to myself that I can"></textarea></div>
+      <div class="row2">
+        <div class="field"><label for="gDaily">Daily action</label><input id="gDaily" maxlength="60" placeholder="Study 2 hours"></div>
+        <div class="field"><label for="gDate">Deadline</label><input id="gDate" type="date"></div>
+      </div>
+      <div class="q-ctl" style="margin-top:4px">
+        <button class="btn" id="gCopy" type="button">Copy as text</button>
+        <button class="btn ghost" id="gClear" type="button">Clear</button>
+        <span class="q-count" id="gMsg"></span>
+      </div>
+    </form>
+  </div>
+  <div>
+    <div class="paper gcard" id="gCard">
+      <div class="gtop"><span id="gTag">Goal card</span><span id="gToday"></span></div>
+      <div class="gtitle"><span class="mark" id="cGoal"></span></div>
+      <div class="gwhy" id="cWhy"></div>
+      <div class="gdaily" id="cDailyWrap"><b>Every day</b><span id="cDaily"></span></div>
+      <div class="gfoot">
+        <div class="gleft"><b id="cLeft">—</b><span id="cLeftLbl">Set a deadline</span></div>
+        <div class="gsig">no excuses.</div>
+      </div>
+    </div>
+    <p class="help">Your card is saved in this browser only. To keep it on your phone, take a screenshot of the card.</p>
+  </div>
+</div></section>
+
+<section id="habits" style="padding-top:0"><div class="wrap">
+  <div class="habits-head">
+    <div>
+      <div class="eyebrow">Chapter VI · The Chain</div>
+      <h2>Don't break<br>the chain</h2>
+      <p class="lead">Add the habits you are building. Tap today's square each time you do one. Your current streak and your best streak are counted for you.</p>
+    </div>
+    <form class="add-habit" id="addHabit">
+      <input id="habitName" maxlength="40" placeholder="New habit, e.g. Meditate 10 min" aria-label="New habit name">
+      <button class="btn hl" type="submit">Add habit</button>
+    </form>
+  </div>
+  <div class="hlist" id="hlist"></div>
+  <p class="help">Last 30 days are shown, today is outlined. Your habits are saved in this browser only.</p>
+</div></section>
+
+<section id="pictures" style="padding-top:0"><div class="wrap">
+  <div class="eyebrow">Chapter VII · The Pictures</div>
+  <h2>The work<br>nobody sees</h2>
+  <p class="lead">Trophies get the photos. These are the other moments: the empty gym, the extra reps, the rope that never stops. Add your own picture to stand next to them.</p>
+  <div class="pics" id="pics">
+    <figure class="pic">
+      <span class="num">01 / Conditioning</span>
+      <img src="assets/muhammad-ali.jpg" alt="Muhammad Ali jumping rope in a crowded training gym, black and white photo" style="object-position:50% 30%">
+      <figcaption><div class="big">Rounds.</div><span class="line"><span class="mark">“Suffer now and live the rest of your life as a champion.”</span></span><span class="small">Muhammad Ali · Boxer</span></figcaption>
+    </figure>
+    <figure class="pic">
+      <span class="num">02 / Practice</span>
+      <img src="assets/stephen-curry.jpg" alt="Stephen Curry alone in an empty arena, shooting a practice shot toward the hoop" style="object-position:50% 40%">
+      <figcaption><div class="big">Shots.</div><span class="line"><span class="mark">“Success is not an accident, success is actually a choice.”</span></span><span class="small">Stephen Curry · Basketball</span></figcaption>
+    </figure>
+    <figure class="pic">
+      <span class="num">03 / Strength</span>
+      <img src="assets/cristiano-ronaldo.jpg" alt="Cristiano Ronaldo doing dumbbell curls in a gym" style="object-position:62% 40%">
+      <figcaption><div class="big">Reps.</div><span class="line"><span class="mark">“Talent without working hard is nothing.”</span></span><span class="small">Cristiano Ronaldo · Football</span></figcaption>
+    </figure>
+    <div id="userPics" style="display:contents"></div>
+    <div class="pic add">
+      <form class="add-form" id="picForm">
+        <div class="plus" aria-hidden="true">+</div>
+        <p>Add a picture of you at work: your desk, your gym, your notes.</p>
+        <input type="text" id="picCap" maxlength="40" placeholder="One word, e.g. Focus." aria-label="Caption for your picture">
+        <label class="btn hl sm file-btn">Choose picture<input type="file" id="picFile" accept="image/*"></label>
+        <div class="add-msg" id="picMsg" role="status"></div>
+      </form>
+    </div>
+  </div>
+  <p class="help">Pictures you add are saved in this browser only, up to 6.</p>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div class="tp"><span class="mark">Trust the process.</span></div>
+  <small>Motivnation · For who you can become</small>
+</div></footer>
+
+<div class="amb" id="amb">
+  <div class="amb-panel" id="ambPanel" hidden>
+    <div class="eyebrow">Ambient sound</div>
+    <div class="modes" role="group" aria-label="Sound type">
+      <button class="chip" type="button" data-mode="focus" aria-pressed="true">Focus</button>
+      <button class="chip" type="button" data-mode="rain" aria-pressed="false">Rain</button>
+      <button class="chip" type="button" data-mode="both" aria-pressed="false">Both</button>
+    </div>
+    <div class="vol"><label for="ambVol">Vol</label><input id="ambVol" type="range" min="0" max="100" value="55"></div>
+    <div class="row"><button class="btn sm hl" id="ambPlay" type="button">Play</button><button class="btn sm ghost" id="ambClose" type="button">Close</button></div>
+  </div>
+  <button class="amb-btn" id="ambBtn" type="button" aria-expanded="false" aria-controls="ambPanel"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span><span id="ambLbl">Ambient</span></button>
+</div>
+
+<script>
+(function(){
+  function $(id){return document.getElementById(id)}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+  function load(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
+  function store(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+  var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function ymd(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
+  function addDays(d,n){var x=new Date(d.getFullYear(),d.getMonth(),d.getDate()+n);return x}
+
+  /* marquee */
+  var bits=[["No results?","Keep working."],["Bad results?","Keep working."],["Good results?","Keep working."],["Discipline","× never give up"],["Forget the past.","Do it for your future."]];
+  var mh=bits.map(function(b){return "<span>"+b[0]+"<em>"+b[1]+"</em></span>"}).join("");
+  $("track").innerHTML=mh+mh;
+
+  var nav=$("nav");function onScroll(){nav.classList.toggle("solid",window.scrollY>40)}
+  window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+
+  /* ---------- QUOTES (shared pool) ---------- */
+  var Q=[
+    ["The impediment to action advances action. What stands in the way becomes the way.","Marcus Aurelius","Roman emperor, Meditations"],
+    ["Discipline is the bridge between goals and accomplishment.","Jim Rohn","Entrepreneur & author"],
+    ["Amateurs sit and wait for inspiration, the rest of us just get up and go to work.","Stephen King","Author, On Writing"],
+    ["Hard work beats talent when talent doesn't work hard.","Tim Notke","Basketball coach"],
+    ["Genius is one percent inspiration and ninety-nine percent perspiration.","Thomas Edison","Inventor"],
+    ["Discipline equals freedom.","Jocko Willink","Former U.S. Navy SEAL officer"],
+    ["It does not matter how slowly you go as long as you do not stop.","Confucius","Philosopher (attributed)"],
+    ["I fear not the man who has practiced 10,000 kicks once, but I fear the man who has practiced one kick 10,000 times.","Bruce Lee","Martial artist"],
+    ["I hated every minute of training, but I said, don't quit. Suffer now and live the rest of your life as a champion.","Muhammad Ali","Boxer"],
+    ["We are what we repeatedly do. Excellence, then, is not an act, but a habit.","Will Durant","Historian, summarizing Aristotle"],
+    ["Waste no more time arguing about what a good man should be. Be one.","Marcus Aurelius","Roman emperor, Meditations"],
+    ["Whether you think you can, or you think you can't, you're right.","Henry Ford","Industrialist (attributed)"],
+    ["Well done is better than well said.","Benjamin Franklin","Statesman, Poor Richard's Almanack"],
+    ["No man is free who is not master of himself.","Epictetus","Stoic philosopher"],
+    ["First say to yourself what you would be; and then do what you have to do.","Epictetus","Stoic philosopher, Discourses"],
+    ["Difficulties strengthen the mind, as labor does the body.","Seneca","Stoic philosopher"],
+    ["We suffer more often in imagination than in reality.","Seneca","Stoic philosopher, Letters to Lucilius"],
+    ["You miss 100% of the shots you don't take.","Wayne Gretzky","Ice hockey player"],
+    ["I've failed over and over and over again in my life. And that is why I succeed.","Michael Jordan","Basketball player"],
+    ["Stay hungry. Stay foolish.","Steve Jobs","Stanford commencement, 2005"],
+    ["The only way to do great work is to love what you do.","Steve Jobs","Stanford commencement, 2005"],
+    ["Great things are done by a series of small things brought together.","Vincent van Gogh","Painter, in a letter to his brother"],
+    ["Champions keep playing until they get it right.","Billie Jean King","Tennis champion"],
+    ["Everybody has a plan until they get punched in the mouth.","Mike Tyson","Boxer"],
+    ["Fall seven times, stand up eight.","Japanese proverb","Traditional saying"],
+    ["The best time to plant a tree was 20 years ago. The second best time is now.","Chinese proverb","Traditional saying"],
+    ["Do not pray for an easy life, pray for the strength to endure a difficult one.","Bruce Lee","Martial artist (attributed)"],
+    ["Patience is bitter, but its fruit is sweet.","Jean-Jacques Rousseau","Philosopher (attributed)"],
+    ["Don't count the days, make the days count.","Muhammad Ali","Boxer (attributed)"],
+    ["Energy and persistence conquer all things.","Benjamin Franklin","Statesman (attributed)"]
+  ];
+  function cite(q){return esc(q[1])+"<small>"+esc(q[2])+"</small>"}
+
+  /* ---------- DAILY QUOTE ---------- */
+  var M=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],W=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  var shownDay="";
+  function daily(){
+    var n=new Date(),key=ymd(n);
+    if(key!==shownDay){shownDay=key;
+      var dayNum=Math.floor(Date.UTC(n.getFullYear(),n.getMonth(),n.getDate())/86400000);
+      var q=Q[(dayNum*7)%Q.length];
+      $("dqText").textContent=q[0];$("dqCite").innerHTML=cite(q);
+      $("calM").textContent=M[n.getMonth()];$("calD").textContent=n.getDate();$("calW").textContent=W[n.getDay()];
+      renderHabits();
+    }
+    var mid=addDays(n,1),s=Math.max(0,Math.floor((mid-n)/1000));
+    $("dqLeft").textContent=[Math.floor(s/3600),Math.floor(s%3600/60),s%60].map(function(x){return String(x).padStart(2,"0")}).join(":");
+  }
+
+  /* ---------- LEXICON ---------- */
+  var LEX=[
+    ["consistency","/kənˈsɪs.tən.si/","noun","Action","Doing the same right thing again and again, especially on the days it feels pointless.","Two hours a day beats ten hours once a month."],
+    ["resilience","/rɪˈzɪl.i.əns/","noun","Endurance","The ability to take a hit, recover, and come back stronger than before.","A failed exam is a lesson plan for the next one."],
+    ["grit","/ɡrɪt/","noun","Endurance","Passion plus perseverance for a long-term goal, sustained across years, not weeks.","Grit is what's left when the excitement is gone."],
+    ["focus","/ˈfoʊ.kəs/","noun","Action","Choosing one thing and saying no to everything that pulls you away from it.","One tab. One task. One hour."],
+    ["momentum","/moʊˈmɛn.təm/","noun","Action","The force you build by moving. Every finished task makes the next one easier.","Start small; the second step is lighter than the first."],
+    ["sacrifice","/ˈsæk.rɪ.faɪs/","noun","Endurance","Giving up what you want now for what you want most.","Skip the scroll. Open the book."],
+    ["patience","/ˈpeɪ.ʃəns/","noun","Endurance","The ability to keep working calmly while results are slow to arrive.","Plant today, harvest next season."],
+    ["ambition","/æmˈbɪʃ.ən/","noun","Mindset","A strong desire to achieve something big, and the willingness to work for it.","Aim high, then schedule the first step."],
+    ["delayed gratification","/dɪˌleɪd ˌɡræt.ɪ.fɪˈkeɪ.ʃən/","noun phrase","Mindset","Choosing a bigger reward later over a smaller reward right now.","Study first, games after."],
+    ["comfort zone","/ˈkʌm.fərt ˌzoʊn/","noun phrase","Mindset","The space where everything feels safe and familiar, and where very little growth happens.","If it scares you a little, you're on the edge of it."],
+    ["accountability","/əˌkaʊn.təˈbɪl.ə.ti/","noun","Action","Owning your results, good or bad, without blaming luck or other people.","Tell a friend your goal and a date."],
+    ["perseverance","/ˌpɜːr.səˈvɪr.əns/","noun","Endurance","Continuing toward a goal despite difficulty, failure or delay.","The tenth attempt counts as much as the first."],
+    ["purpose","/ˈpɜːr.pəs/","noun","Mindset","The reason behind your effort. The why that keeps you moving when the what gets hard.","Write your why where you'll see it every morning."],
+    ["self-control","/ˌself.kənˈtroʊl/","noun","Mindset","The ability to manage your impulses so your actions match your goals.","Phone in another room during deep work."],
+    ["hunger","/ˈhʌŋ.ɡər/","noun","Mindset","A deep, restless desire to improve that doesn't go away after one win.","Celebrate tonight, train tomorrow."]
+  ];
+  var cats=["All","Mindset","Action","Endurance"],cat=load("mn-lexcat","All"),lq="";
+  if(cats.indexOf(cat)<0)cat="All";
+  $("lexChips").innerHTML=cats.map(function(c){return '<button type="button" class="chip" data-c="'+c+'" aria-pressed="'+(c===cat)+'">'+c+'</button>'}).join("");
+  $("lexChips").onclick=function(e){var b=e.target.closest(".chip");if(!b)return;cat=b.dataset.c;store("mn-lexcat",cat);
+    [].forEach.call(this.children,function(x){x.setAttribute("aria-pressed",x===b)});renderLex()};
+  $("lexQ").oninput=function(){lq=this.value.trim().toLowerCase();renderLex()};
+  function hiText(t){var s=esc(t);if(!lq)return s;var i=t.toLowerCase().indexOf(lq);if(i<0)return s;
+    return esc(t.slice(0,i))+"<mark>"+esc(t.slice(i,i+lq.length))+"</mark>"+esc(t.slice(i+lq.length))}
+  function renderLex(){
+    var list=LEX.filter(function(e){return (cat==="All"||e[3]===cat)&&(!lq||(e[0]+" "+e[4]+" "+e[5]).toLowerCase().indexOf(lq)>=0)});
+    $("lexGrid").innerHTML=list.map(function(e){
+      return '<article class="entry"><span class="tag">'+e[3]+'</span><h3>'+hiText(e[0])+'</h3><div class="pron">'+e[1]+' <i>'+e[2]+'</i></div><p>'+hiText(e[4])+'</p><span class="use"><b>In practice ·</b> '+esc(e[5])+'</span></article>'}).join("");
+    $("lexGrid").hidden=!list.length;$("lexEmpty").hidden=!!list.length;
+    $("lexCount").textContent=list.length+" of "+LEX.length+" words";
+  }
+  renderLex();
+
+  /* ---------- QUOTE ROTATOR + GRID ---------- */
+  var qi=0,qf=$("qf");
+  function showQ(i,anim){
+    function set(){$("qfText").textContent=Q[i][0];$("qfCite").innerHTML=cite(Q[i]);$("qCount").textContent=String(i+1).padStart(2,"0")+" / "+Q.length;qf.classList.remove("out")}
+    if(anim&&!reduce){qf.classList.add("out");setTimeout(set,320)}else set();
+  }
+  showQ(0);
+  $("qNext").onclick=function(){qi=(qi+1)%Q.length;showQ(qi,true)};
+  function copyText(t,btn,label,selNode){
+    function done(m){btn.textContent=m;setTimeout(function(){btn.textContent=label},1600)}
+    function sel(){if(selNode){var r=document.createRange();r.selectNodeContents(selNode);var s=getSelection();s.removeAllRanges();s.addRange(r);done("Selected")}else done("Copy failed")}
+    try{navigator.clipboard.writeText(t).then(function(){done("Copied")},sel)}catch(e){sel()}
+  }
+  $("qCopy").onclick=function(){copyText("“"+Q[qi][0]+"” — "+Q[qi][1],this,"Copy",$("qfText"))};
+  $("qGrid").innerHTML=[1,2,3,5,7,8,13,15,18,19,21,24].map(function(i,k){var q=Q[i];
+    return '<blockquote class="q'+(k%4===1?' paper':'')+'"><p>'+esc(q[0])+'</p><cite>'+cite(q)+'</cite></blockquote>'}).join("");
+
+  /* ---------- STORIES ---------- */
+  var ST=[
+    ["1878","1880","Thomas Edison","The light bulb","Inventor","His early bulbs burned out in seconds. He and his team tested thousands of filament materials, from metals to threads to plant fibers.","A carbonized bamboo filament that could glow for more than 1,200 hours made electric light practical for homes.","1000s","materials tested"],
+    ["1923","1928","Walt Disney","Mickey Mouse","Animator & founder","His first studio, Laugh-O-Gram in Kansas City, went bankrupt when he was 21. He moved to Hollywood with almost nothing.","Steamboat Willie introduced Mickey Mouse in 1928. In 1937, Snow White became the first full-length cel-animated feature film.","Age 21","when he went bankrupt"],
+    ["1952","1964","Harland Sanders","Kentucky Fried Chicken","Cook & entrepreneur","In his sixties, his roadside restaurant lost its customers when a new highway bypassed the town. He sold it at auction.","He drove from restaurant to restaurant selling his recipe. By 1964 there were hundreds of KFC outlets and he sold the company for $2 million.","Age 62","first franchise"],
+    ["1973","1974","Stephen King","Carrie","Author","He collected so many rejections that he pinned them on a nail on his wall. He threw an early draft of Carrie in the trash; his wife Tabitha pulled it back out.","Carrie was published in 1974. The paperback rights sold for $400,000 and his writing career began.","30","rejections for Carrie"],
+    ["1978","1991","Michael Jordan","Six NBA titles","Basketball player","As a sophomore he was left off his high school's varsity team and sent to junior varsity.","He won six NBA championships with the Chicago Bulls (1991–93, 1996–98) and was Finals MVP every time.","6","NBA championships"],
+    ["1979","1993","James Dyson","The bagless vacuum","Engineer & inventor","He spent five years building 5,127 prototypes. Manufacturers turned down his design.","He launched the DC01 under his own name in 1993. It became the best-selling vacuum cleaner in the UK.","5,127","prototypes built"],
+    ["1995","1997","J.K. Rowling","Harry Potter","Author","A single mother living on welfare, she sent her first manuscript out and it was rejected by 12 publishers.","Bloomsbury published Harry Potter and the Philosopher's Stone in 1997. The series has sold more than 500 million copies.","12","publisher rejections"]
+  ];
+  $("timeline").innerHTML=ST.map(function(s){
+    return '<article class="story reveal"><div class="yr">'+s[0]+'<small>→ '+s[1]+'</small></div><div class="story-body"><h3>'+s[2]+'</h3><div class="who">'+s[4]+' · '+s[3]+'</div>'+
+      '<div class="sb"><div><span class="k bad">Setback</span><p>'+s[5]+'</p></div><div><span class="k good">Breakthrough</span><p>'+s[6]+'</p></div><div class="figure"><b>'+s[7]+'</b><span>'+s[8]+'</span></div></div></div></article>'}).join("");
+
+  /* ---------- CHARTS ---------- */
+  var NS="http://www.w3.org/2000/svg";
+  function el(svg,tag,a){var n=document.createElementNS(NS,tag);for(var k in a)n.setAttribute(k,a[k]);svg.appendChild(n);return n}
+  (function(){
+    var s=$("compound"),L=46,R=690,T=14,B=262,X=function(d){return L+(R-L)*d/365},Y=function(v){return B-(B-T)*v/40};
+    [0,10,20,30,40].forEach(function(v){el(s,"line",{x1:L,x2:R,y1:Y(v),y2:Y(v),stroke:"#26262c","stroke-width":1});el(s,"text",{x:L-10,y:Y(v)+4,"text-anchor":"end"}).textContent=v+"×"});
+    [0,90,180,270,365].forEach(function(d){el(s,"text",{x:X(d),y:B+22,"text-anchor":"middle"}).textContent="Day "+d});
+    function path(f){var p="";for(var d=0;d<=365;d++){p+=(d?"L":"M")+X(d).toFixed(1)+" "+Y(f(d)).toFixed(1)}return p}
+    var up=path(function(d){return Math.pow(1.01,d)});
+    el(s,"path",{d:up+"L"+R+" "+B+"L"+L+" "+B+"Z",fill:"rgba(230,239,60,.08)",stroke:"none"});
+    el(s,"path",{d:path(function(){return 1}),fill:"none",stroke:"#8f8b84","stroke-width":1.5,"stroke-dasharray":"4 5"});
+    el(s,"path",{d:path(function(d){return Math.pow(.99,d)}),fill:"none",stroke:"#c46a5a","stroke-width":2.5});
+    var line=el(s,"path",{d:up,fill:"none",stroke:"#e6ef3c","stroke-width":3,"stroke-linejoin":"round"});
+    el(s,"circle",{cx:R,cy:Y(37.78),r:5,fill:"#e6ef3c"});
+    el(s,"text",{x:R-10,y:Y(37.78)+4,"text-anchor":"end",style:"fill:#e9e5de"}).textContent="37.78×";
+    el(s,"circle",{cx:R,cy:Y(.0255),r:4,fill:"#c46a5a"});
+    var len=line.getTotalLength();line.style.strokeDasharray=len;line.style.strokeDashoffset=0;
+    if(!reduce&&"IntersectionObserver" in window&&s.getBoundingClientRect().top>innerHeight){
+      line.style.strokeDashoffset=len;
+      new IntersectionObserver(function(es,o){es.forEach(function(e){if(e.isIntersecting){line.style.transition="stroke-dashoffset 2.2s cubic-bezier(.5,0,.2,1)";line.style.strokeDashoffset=0;o.disconnect()}})},{threshold:.35}).observe(s);
+    }
+  })();
+  (function(){
+    var s=$("valley"),L=26,R=344,T=10,B=214,X=function(x){return L+(R-L)*x},Y=function(v){return B-(B-T)*v/1.6};
+    el(s,"line",{x1:L,x2:R,y1:B,y2:B,stroke:"#3a3a42"});el(s,"line",{x1:L,x2:L,y1:T,y2:B,stroke:"#3a3a42"});
+    el(s,"text",{x:R,y:B+22,"text-anchor":"end"}).textContent="Time & effort →";
+    el(s,"text",{x:L+6,y:T+10}).textContent="Results ↑";
+    var act=function(x){return (Math.exp(4*x)-1)/(Math.exp(4)-1)*1.6},pe="",pa="",i,x;
+    for(i=0;i<=100;i++){x=i/100;pe+=(i?"L":"M")+X(x)+" "+Y(x);pa+=(i?"L":"M")+X(x)+" "+Y(act(x))}
+    var g="M"+X(0)+" "+Y(0);for(i=0;i<=86;i++){x=i/100;g+="L"+X(x)+" "+Y(x)}for(i=86;i>=0;i--){x=i/100;g+="L"+X(x)+" "+Y(act(x))}
+    el(s,"path",{d:g+"Z",fill:"rgba(196,106,90,.16)"});
+    el(s,"path",{d:pe,fill:"none",stroke:"#8f8b84","stroke-width":2,"stroke-dasharray":"5 5"});
+    el(s,"path",{d:pa,fill:"none",stroke:"#e6ef3c","stroke-width":3});
+    el(s,"text",{x:X(.52),y:Y(.38),"text-anchor":"middle",style:"fill:#e9e5de"}).textContent="valley of";
+    el(s,"text",{x:X(.52),y:Y(.38)+14,"text-anchor":"middle",style:"fill:#e9e5de"}).textContent="disappointment";
+    el(s,"circle",{cx:X(.86),cy:Y(.86),r:4,fill:"#e9e5de"});
+    el(s,"text",{x:X(.86)-8,y:Y(.86)-10,"text-anchor":"end",style:"fill:#e6ef3c"}).textContent="breakthrough";
+    el(s,"text",{x:X(.3),y:Y(.06)+16,"text-anchor":"middle",style:"fill:#c46a5a"}).textContent="most people quit here ↑";
+  })();
+
+  /* ---------- REEL ---------- */
+  (function(){
+    var reel=$("reel"),frames=[].slice.call(reel.querySelectorAll(".frame")),n=frames.length,dots=$("reelDots");
+    dots.innerHTML=frames.map(function(){return "<i></i>"}).join("");
+    if(reduce){reel.classList.add("static");return}
+    var ticking=false;
+    function upd(){ticking=false;
+      var r=reel.getBoundingClientRect(),vh=innerHeight,span=r.height-vh,p=span>0?Math.min(Math.max(-r.top/span,0),.9999):0;
+      var pos=p*n,idx=Math.floor(pos),t=pos-idx;
+      frames.forEach(function(f,i){
+        if(i!==idx){f.style.opacity=0;return}
+        var a=1,blur=0,sc=1;
+        if(t<.3&&i>0){var k=t/.3;a=k;blur=(1-k)*22;sc=1.08-.08*k}
+        else if(t>.78&&i<n-1){var k2=(t-.78)/.22;a=1-k2;blur=k2*14;sc=1-.04*k2}
+        f.style.opacity=a;f.style.filter=blur?"blur("+blur.toFixed(1)+"px)":"none";f.style.transform="scale("+sc.toFixed(3)+")";
+      });
+      [].forEach.call(dots.children,function(d,i){d.classList.toggle("on",i===idx)});
+      $("reelHint").style.opacity=p>.05?0:1;
+    }
+    window.addEventListener("scroll",function(){if(!ticking){ticking=true;requestAnimationFrame(upd)}},{passive:true});
+    window.addEventListener("resize",upd);upd();
+  })();
+
+  /* ---------- GOAL CARD ---------- */
+  var G=load("mn-goal",{goal:"",why:"",daily:"",date:""}),EX={goal:"Pass every exam this semester with 3.5+",why:"I want to prove to myself that I can",daily:"Study 2 hours",date:""};
+  ["goal","why","daily","date"].forEach(function(k){var f=$({goal:"gGoal",why:"gWhy",daily:"gDaily",date:"gDate"}[k]);f.value=G[k]||"";
+    f.addEventListener("input",function(){G[k]=f.value;store("mn-goal",G);renderGoal()})});
+  function renderGoal(){
+    var has=!!(G.goal||G.why||G.daily||G.date),d=has?G:EX,now=new Date();
+    $("gCard").classList.toggle("example",!has);
+    $("gTag").innerHTML=has?"Goal card":'<span class="ex-tag">Example</span> write your own';
+    $("gToday").textContent=M[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear();
+    $("cGoal").textContent=d.goal||"Your goal goes here";
+    $("cWhy").textContent=d.why||"…your reason";
+    $("cDaily").textContent=d.daily||"one small action";
+    if(d.date){var t=new Date(d.date+"T00:00:00"),today=new Date(now.getFullYear(),now.getMonth(),now.getDate()),left=Math.round((t-today)/86400000);
+      $("cLeft").textContent=left>=0?left:"Done?";$("cLeftLbl").textContent=left>=0?(left===1?"day left":"days left"):"deadline passed "+(-left)+" days ago";}
+    else{$("cLeft").textContent=has?"—":"98";$("cLeftLbl").textContent=has?"Set a deadline":"days left"}
+  }
+  renderGoal();
+  $("goalForm").addEventListener("submit",function(e){e.preventDefault()});
+  $("gCopy").onclick=function(){var t="MY GOAL: "+(G.goal||"-")+"\nWHY: "+(G.why||"-")+"\nEVERY DAY: "+(G.daily||"-")+(G.date?"\nDEADLINE: "+G.date:"");copyText(t,this,"Copy as text",$("gCard"))};
+  var gArm=false;
+  $("gClear").onclick=function(){var b=this;
+    if(!gArm){gArm=true;b.textContent="Tap again to clear";setTimeout(function(){gArm=false;b.textContent="Clear"},3000);return}
+    gArm=false;b.textContent="Clear";G={goal:"",why:"",daily:"",date:""};store("mn-goal",G);["gGoal","gWhy","gDaily","gDate"].forEach(function(id){$(id).value=""});renderGoal();$("gMsg").textContent="Card cleared.";};
+
+  /* ---------- HABITS ---------- */
+  var H=load("mn-habits",null);
+  if(!H||!Array.isArray(H.list)){H={list:[
+    {id:"h1",name:"Workout",done:{}},{id:"h2",name:"Read 20 pages",done:{}},{id:"h3",name:"Code for 1 hour",done:{}}]}}
+  function saveH(){store("mn-habits",H)}
+  function streaks(done){
+    var today=new Date(),cur=0,d=done[ymd(today)]?today:addDays(today,-1);
+    while(done[ymd(d)]){cur++;d=addDays(d,-1)}
+    var keys=Object.keys(done).filter(function(k){return done[k]}).sort(),best=0,run=0,prev=null;
+    keys.forEach(function(k){var t=new Date(k+"T00:00:00");if(prev&&Math.round((t-prev)/86400000)===1)run++;else run=1;if(run>best)best=run;prev=t});
+    return {cur:cur,best:best};
+  }
+  var armed={};
+  function renderHabits(){
+    var box=$("hlist");if(!box)return;
+    if(!H.list.length){box.innerHTML='<div class="hempty">No habits yet. Add your first one above, then tap today\'s square when you do it.</div>';return}
+    var today=new Date(),todayK=ymd(today);
+    box.innerHTML=H.list.map(function(h){
+      var st=streaks(h.done),cnt=0,cells="";
+      for(var i=29;i>=0;i--){var d=addDays(today,-i),k=ymd(d),on=!!h.done[k];if(on)cnt++;
+        cells+='<button type="button" class="cell'+(on?' on':'')+(k===todayK?' today':'')+'" data-h="'+h.id+'" data-d="'+k+'" aria-pressed="'+on+'" aria-label="'+esc(h.name)+', '+M[d.getMonth()]+' '+d.getDate()+'">'+d.getDate()+'</button>'}
+      var s30=addDays(today,-29);
+      return '<article class="habit"><div><h3>'+esc(h.name)+'</h3><div class="hstats"><div><b>'+st.cur+'</b><span>Current streak</span></div><div class="best"><b>'+st.best+'</b><span>Best streak</span></div><div><b>'+cnt+'/30</b><span>Last 30 days</span></div></div>'+
+        '<div class="hactions"><button type="button" class="btn sm ghost" data-del="'+h.id+'">'+(armed[h.id]?"Tap again to remove":"Remove")+'</button></div></div>'+
+        '<div style="min-width:0"><div class="grid30">'+cells+'</div><div class="grid-legend"><span>'+M[s30.getMonth()]+' '+s30.getDate()+'</span><span>Today</span></div></div></article>';
+    }).join("");
+  }
+  $("hlist").addEventListener("click",function(e){
+    var c=e.target.closest(".cell");
+    if(c){var h=H.list.filter(function(x){return x.id===c.dataset.h})[0];if(!h)return;
+      if(h.done[c.dataset.d])delete h.done[c.dataset.d];else h.done[c.dataset.d]=1;saveH();renderHabits();
+      var again=document.querySelector('.cell[data-h="'+h.id+'"][data-d="'+c.dataset.d+'"]');if(again)again.focus();return}
+    var del=e.target.closest("[data-del]");
+    if(del){var id=del.dataset.del;
+      if(!armed[id]){armed[id]=true;renderHabits();setTimeout(function(){if(armed[id]){delete armed[id];renderHabits()}},3000);return}
+      delete armed[id];H.list=H.list.filter(function(x){return x.id!==id});saveH();renderHabits()}
+  });
+  $("addHabit").addEventListener("submit",function(e){e.preventDefault();var inp=$("habitName"),v=inp.value.trim();
+    if(!v){inp.focus();return}
+    if(H.list.length>=8){inp.value="";inp.placeholder="Max 8 habits. Remove one first.";return}
+    H.list.push({id:"h"+Date.now(),name:v,done:{}});saveH();inp.value="";renderHabits()});
+
+  daily();setInterval(daily,1000);renderHabits();
+
+  /* ---------- AMBIENT AUDIO (generated, no files) ---------- */
+  (function(){
+    var ctx=null,master,focusBus,rainBus,playing=false,mode=load("mn-amb-mode","focus"),vol=+load("mn-amb-vol",55);
+    if(["focus","rain","both"].indexOf(mode)<0)mode="focus";
+    $("ambVol").value=vol;
+    var panel=$("ambPanel"),btn=$("ambBtn");
+    function syncModes(){[].forEach.call(document.querySelectorAll("[data-mode]"),function(b){b.setAttribute("aria-pressed",b.dataset.mode===mode)})}
+    syncModes();
+    btn.onclick=function(){panel.hidden=!panel.hidden;btn.setAttribute("aria-expanded",!panel.hidden)};
+    $("ambClose").onclick=function(){panel.hidden=true;btn.setAttribute("aria-expanded","false")};
+    function build(){
+      var AC=window.AudioContext||window.webkitAudioContext;if(!AC)return false;
+      ctx=new AC();master=ctx.createGain();master.gain.value=0;master.connect(ctx.destination);
+      focusBus=ctx.createGain();rainBus=ctx.createGain();focusBus.connect(master);rainBus.connect(master);
+      /* drone: Am(add9) pad through a slowly breathing low-pass */
+      var lp=ctx.createBiquadFilter();lp.type="lowpass";lp.frequency.value=900;lp.Q.value=.7;lp.connect(focusBus);
+      var lfo=ctx.createOscillator(),lfoG=ctx.createGain();lfo.frequency.value=.06;lfoG.gain.value=420;lfo.connect(lfoG);lfoG.connect(lp.frequency);lfo.start();
+      [110,164.81,220,246.94,261.63,329.63].forEach(function(f,i){
+        var g=ctx.createGain();g.gain.value=i<2?.07:.04;g.connect(lp);
+        var trem=ctx.createOscillator(),tg=ctx.createGain();trem.frequency.value=.05+i*.023;tg.gain.value=.02;trem.connect(tg);tg.connect(g.gain);trem.start();
+        [-5,5].forEach(function(dt,j){var o=ctx.createOscillator();o.type=j?"triangle":"sine";o.frequency.value=f;o.detune.value=dt;o.connect(g);o.start()});
+      });
+      /* rain: looped noise, band-shaped, with slow swell */
+      var len=ctx.sampleRate*3,buf=ctx.createBuffer(2,len,ctx.sampleRate);
+      for(var ch=0;ch<2;ch++){var d=buf.getChannelData(ch),b0=0,b1=0,b2=0;for(var i=0;i<len;i++){var w=Math.random()*2-1;b0=.99765*b0+w*.099;b1=.963*b1+w*.2965;b2=.57*b2+w*1.0526;d[i]=(b0+b1+b2+w*.1848)*.11}}
+      var src=ctx.createBufferSource();src.buffer=buf;src.loop=true;
+      var hp=ctx.createBiquadFilter();hp.type="highpass";hp.frequency.value=350;
+      var lp2=ctx.createBiquadFilter();lp2.type="lowpass";lp2.frequency.value=5200;
+      var rg=ctx.createGain();rg.gain.value=.55;
+      var sw=ctx.createOscillator(),swg=ctx.createGain();sw.frequency.value=.09;swg.gain.value=.12;sw.connect(swg);swg.connect(rg.gain);sw.start();
+      src.connect(hp);hp.connect(lp2);lp2.connect(rg);rg.connect(rainBus);src.start();
+      return true;
+    }
+    function applyMix(){if(!ctx)return;var t=ctx.currentTime;
+      focusBus.gain.setTargetAtTime(mode==="rain"?0:1,t,.4);rainBus.gain.setTargetAtTime(mode==="focus"?0:(mode==="both"?.7:1),t,.4)}
+    function applyVol(){if(!ctx)return;master.gain.setTargetAtTime(playing?(vol/100)*.9:0,ctx.currentTime,.6)}
+    function ui(){btn.classList.toggle("playing",playing);$("ambPlay").textContent=playing?"Pause":"Play";$("ambLbl").textContent=playing?"Playing":"Ambient"}
+    $("ambPlay").onclick=function(){
+      if(!ctx&&!build()){$("ambPlay").textContent="Not supported";return}
+      playing=!playing;
+      if(playing){ctx.resume();applyMix();applyVol()}
+      else{applyVol();setTimeout(function(){if(!playing&&ctx)ctx.suspend()},1800)}
+      ui();
+    };
+    document.querySelector(".modes").onclick=function(e){var b=e.target.closest("[data-mode]");if(!b)return;mode=b.dataset.mode;store("mn-amb-mode",mode);syncModes();applyMix()};
+    $("ambVol").oninput=function(){vol=+this.value;store("mn-amb-vol",vol);applyVol()};
+  })();
+
+  /* ---------- USER PICTURES ---------- */
+  (function(){
+    var P=load("mn-pics",[]),armedP={};if(!Array.isArray(P))P=[];
+    function render(){
+      $("userPics").innerHTML=P.map(function(p,i){
+        return '<figure class="pic"><span class="num">'+String(i+4).padStart(2,"0")+' / You</span><img src="'+p.src+'" alt="Your picture: '+esc(p.cap||"untitled")+'">'+
+          '<button type="button" class="btn sm ghost rm" data-rm="'+p.id+'">'+(armedP[p.id]?"Tap again":"Remove")+'</button>'+
+          '<figcaption><div class="big">'+esc(p.cap||"Me.")+'</div><span class="line"><span class="mark">Still working.</span></span><span class="small">Added '+esc(p.date)+'</span></figcaption></figure>'}).join("");
+    }
+    render();
+    $("userPics").addEventListener("click",function(e){var b=e.target.closest("[data-rm]");if(!b)return;var id=b.dataset.rm;
+      if(!armedP[id]){armedP[id]=true;render();setTimeout(function(){if(armedP[id]){delete armedP[id];render()}},3000);return}
+      delete armedP[id];P=P.filter(function(p){return p.id!==id});store("mn-pics",P);render();$("picMsg").textContent="Picture removed."});
+    $("picForm").addEventListener("submit",function(e){e.preventDefault()});
+    $("picFile").addEventListener("change",function(){
+      var f=this.files&&this.files[0],msg=$("picMsg"),inp=this;if(!f)return;
+      if(P.length>=6){msg.textContent="Max 6 pictures. Remove one first.";inp.value="";return}
+      if(!/^image\//.test(f.type)){msg.textContent="That file isn't an image.";inp.value="";return}
+      msg.textContent="Adding…";
+      var r=new FileReader();
+      r.onload=function(){var img=new Image();img.onload=function(){
+        var s=Math.min(1,900/Math.max(img.width,img.height)),c=document.createElement("canvas");
+        c.width=Math.round(img.width*s);c.height=Math.round(img.height*s);c.getContext("2d").drawImage(img,0,0,c.width,c.height);
+        var now=new Date(),item={id:"p"+Date.now(),src:c.toDataURL("image/jpeg",.78),cap:$("picCap").value.trim(),date:M[now.getMonth()]+" "+now.getDate()};
+        P.push(item);
+        try{localStorage.setItem("mn-pics",JSON.stringify(P));msg.textContent="Added."}
+        catch(err){msg.textContent="Added for now, but this browser couldn't save it."}
+        $("picCap").value="";inp.value="";render();
+      };img.onerror=function(){msg.textContent="Couldn't read that image. Try a JPG or PNG.";inp.value=""};img.src=r.result};
+      r.readAsDataURL(f);
+    });
+  })();
+
+  /* reveal */
+  if("IntersectionObserver" in window&&!reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.remove("pre");io.unobserve(e.target)}})},{threshold:.12});
+    document.querySelectorAll(".reveal").forEach(function(n){if(n.getBoundingClientRect().top>innerHeight){n.classList.add("pre");io.observe(n)}});
+  }
+})();
+</script>
+
+</body>
+</html>
